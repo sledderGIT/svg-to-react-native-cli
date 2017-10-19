@@ -24,6 +24,7 @@ const replaceAllStrings = require('./src/replaceAllStrings');
 
 // Argument setup
 const args = yargs
+  .option('dir', { alias: 'd', default: false })
   .option('format', { default: true })
   .option('output', { alias: 'o' })
   .option('rm-style', { default: false })
@@ -33,6 +34,7 @@ const args = yargs
 const firstArg = args._[0];
 const newFileName = args._[1] || 'MyComponent';
 const outputPath = args.output;
+const directoryPath = args.dir;
 const rmStyle = args.rmStyle;
 const format = args.format;
 
@@ -141,19 +143,20 @@ const runUtil = (fileToRead, fileToWrite) => {
 };
 
 const runUtilForAllInDir = () => {
-  fs.readdir(process.cwd(), (err, files) => {
+  fs.readdir(path.resolve(process.cwd(), directoryPath), (err, files) => {
     if (err) {
       return console.log(err);
     }
 
     files.forEach((file, i) => {
-      const extention = path.extname(file);
-      const fileName = path.basename(file);
+      const resolvedFile = path.resolve(process.cwd(), directoryPath, file);
+      const extension = path.extname(resolvedFile);
+      const fileName = path.basename(resolvedFile);
 
-      if (extention === '.svg') {
+      if (extension === '.svg') {
         // variable instantiated up top
         const componentName = createComponentName(file, fileName);
-        runUtil(fileName, componentName);
+        runUtil(resolvedFile, componentName);
         fileCount++;
       }
     });
@@ -172,7 +175,7 @@ if (args.example) {
 }
 
 // Main entry point
-if (firstArg === 'dir') {
+if (directoryPath) {
   runUtilForAllInDir();
 } else {
   fileCount++;
