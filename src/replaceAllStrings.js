@@ -22,12 +22,13 @@ module.exports = function replaceAll(str) {
     linearGradient: 'LinearGradient',
     radialGradient: 'RadialGradient',
     stop: 'Stop',
-    clipPath: 'ClipPath'
+    clipPath: 'ClipPath',
+    cy: 'y',
+    cx: 'x'
   };
 
-  console.log(str);
-
   const regEx = new RegExp(Object.keys(mapObj).join('|'), 'gi');
+
   return str.replace(regEx, function(matched) {
     return mapObj[matched];
   });
