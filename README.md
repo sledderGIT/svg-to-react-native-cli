@@ -32,11 +32,34 @@ or for all files in directory (will name all components in CamelCase based on im
 
 Takes this:
 ```html
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 512px; width: 512px;"><defs><filter id="glow"><feGaussianBlur stdDeviation="7" result="coloredBlur"></feGaussianBlur><feMerge><feMergeNode in="coloredBlur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><circle cx="256" cy="256" r="256" fill="#f5a623" opacity="1" stroke="#fff" stroke-width="0"></circle><path fill="#000000" opacity="1" d="M363.783 ..." transform="translate(25.6, 25.6) scale(0.9, 0.9) rotate(0, 256, 256)" clip-path="false" filter="url(#glow)"></path><g font-family="Arial, Helvetica, sans-serif" font-size="120" font-style="normal" font-weight="bold" text-anchor="middle" class="" transform="translate(256,300)" style="touch-action: none;"><text stroke="#000" stroke-width="30" opacity="1"></text><text fill="#fff" opacity="1"></text></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
+<g>
+	<circle fill="#E16B5A" cx="64" cy="64" r="64"/>
+	<path fill="#D16354" d="M119.23,96.322c-0..."/>
+	<path fill="#242424" d="M64,104c-9.775,0-..."/>
+	<path fill="#B3B3B3" d="M64,95.5c-12.861,..."/>
+	<g>
+		<path fill="#1A1A1A" d="M86.43,39.278C8..."/>
+		<path fill="#1A1A1A" d="M99,49c0-6.564-..."/>
+		<path fill="#1A1A1A" d="M35.073,39.171c..."/>
+	</g>
+	<path fill="#242424" d="M69,71.5c-1.382,..."/>
+	<path fill="#F5F5F5" d="M76.5,59c-2.756,..."/>
+	<path fill="#242424" d="M76.5,56.5c-1.37..."/>
+	<path fill="#F5F5F5" d="M51.5,59c-2.759,..."/>
+	<path fill="#242424" d="M51.498,56.5C500..."/>
+	<path fill="#242424" d="M74,81.5H54c-1.3..."/>
+</g>
+</svg>
 ```
 And creates a new file with this:
 
 ```javascript
+
 import React from 'react';
 import {
   Svg,
@@ -59,38 +82,25 @@ import {
 
 export default function TestSvg(props) {
   return (
-    <Svg heiGht="512" width="512" viewBox="0 0 512 512">
-      <Defs />
-      <Circle
-        x="256"
-        y="256"
-        fill="#f5a623"
-        opacity="1"
-        r="256"
-        stroke="#fff"
-        strokeWidth="0"
-      />
-      <Path
-        ClipPath="false"
-        d="M363.783 ..."
-        fill="#000000"
-        opacity="1"
-        transform="translate(25.6, 25.6) scale(0.9, 0.9) rotate(0, 256, 256)"
-      />
-      <G
-        fontFamily="Arial, Helvetica, sans-serif"
-        fontSize="120"
-        TextAnchor="middle"
-        transform="translate(256,300)"
-      >
-        <Text opacity="1" stroke="#000" strokeWidth="30" />
-        <Text fill="#fff" opacity="1" />
-      </G>
+    <Svg height="128px" id="Layer_1" width="128px" version="1.1" viewBox="0 0 128 128" x="0px" y="0px" xmlSpace="preserve">
+    	<G>
+    		<Circle x="64" y="64" fill="#E16B5A" r="64"/>
+    		<Path d="M119.23,96.322c-0..." fill="#D16354"/>
+    		<Path d="M64,104c-9.775,0-..." fill="#242424"/>
+    		<Path d="M64,95.5c-12.861,..." fill="#B3B3B3"/>
+    		<G>
+    			<Path d="M86.43,39.278C8..." fill="#1A1A1A"/>
+    			<Path d="M99,49c0-6.564-..." fill="#1A1A1A"/>
+    			<Path d="M35.073,39.171c..." fill="#1A1A1A"/>
+    		</G>
+    		<Path d="M69,71.5c-1.382,..." fill="#242424"/>
+    		<Path d="M76.5,59c-2.756,..." fill="#F5F5F5"/>
+    		<Path d="M76.5,56.5c-1.37..." fill="#242424"/>
+    		<Path d="M51.5,59c-2.759,..." fill="#F5F5F5"/>
+    		<Path d="M51.498,56.5C500..." fill="#242424"/>
+    		<Path d="M74,81.5H54c-1.3..." fill="#242424"/>
+    	</G>
     </Svg>
-  );
-}
-
-
   );
 }
 ```
