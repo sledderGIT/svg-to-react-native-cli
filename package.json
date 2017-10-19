@@ -1,33 +1,35 @@
 {
-  "name": "svg-to-react-cli",
-  "version": "1.5.0",
-  "description": "A command line utility that takes a svg image file and outputs a fully formatted stateless functional React component with `hieght` and `width` for props. With flags to toggle formatting and remove style attributes.",
+  "name": "svg-to-react-native-cli",
+  "version": "0.0.1",
+  "description": "Based on svg-to-react-cli. A command line utility that takes a svg image file and outputs a fully formatted stateless functional React Native component with `height` and `width` for props. With flags to toggle formatting and remove style attributes.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node index.js ./src/test-svgs/test TestSvg --output ./src/test-svgs/ --rm-style"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goopscoop/svg-to-react.git"
+    "url": "git+https://github.com/chrisbull/svg-to-react-native-cli.git"
   },
   "keywords": [
     "react",
+    "react-native",
     "svg",
     "component"
   ],
-  "author": "goopscoop <codybarrus@gmail.com> (http://codybarrus.com)",
+  "author": "chrisbull <chris@siteappy.com> (http://siteappy.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goopscoop/svg-to-react/issues"
+    "url": "https://github.com/chrisbull/svg-to-react-native-cli/issues"
   },
-  "homepage": "https://github.com/goopscoop/svg-to-react#readme",
+  "homepage": "https://github.com/chrisbull/svg-to-react-native-cli#readme",
   "bin": {
-    "svgtoreact": "./index.js"
+    "svg-to-react-native": "./index.js"
   },
   "dependencies": {
     "chalk": "^1.1.3",
-    "htmltojsx": "git://github.com/reactjs/react-magic.git",
+    "htmltojsx": "^0.3.0",
     "jsdom-no-contextify": "^3.1.0",
+    "svg-to-jsx": "^0.0.21",
     "yargs": "^6.5.0"
   }
 }

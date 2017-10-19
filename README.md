@@ -1,25 +1,26 @@
-# svg-to-react-cli
-A command line utility that takes a svg image file and outputs a fully formatted stateless functional React component with `height` and `width` for props. With flags to toggle formatting and remove style attributes.
+# svg-to-react-native-cli
+Based on svg-to-react-cli.
+A command line utility that takes a svg image file and outputs a fully formatted stateless functional React Native component with `height` and `width` for props. With flags to toggle formatting and remove style attributes.
 
 ## To Use
-`npm install -g svg-to-react-cli`
+`npm install -g svg-to-react-naive-cli`
 
 ### One File
 
-`svgtoreact <svgImage> <ComponentName>`
+`svg-to-react-native <svgImage>(remove the .svg) <ComponentName>`
 
-**NOTE**: image file must be in current working directory. Do not add the extention. If file is `image.svg`, then just enter `image` as the first argument. ComponentName will be the name of the sfc and filename with `.js` appended.
+**NOTE**: image file must be in current working directory. Do not add the extension. If file is `image.svg`, then just enter `image` as the first argument. ComponentName will be the name of the sfc and filename with `.js` appended.
 
 ### Multi File
 
-`svgtoreact dir`
+`svg-to-react-native dir`
 
 or for all files in directory (will name all components in CamelCase based on image name. If image is `image.svg` then new component will be `Image` and file will be `Image.js`):
 
 
 ## Flags
 
-Or use flags: `svgtoreact <svgImage> <ComponentName> --output ./components/svgComponents/ --no-format --rm-style`
+Or use flags: `svg-to-react-native <svgImage> <ComponentName> --output ./components/svgComponents/ --no-format --rm-style`
 
 **Optional Flags:**
 
@@ -43,26 +44,58 @@ And creates a new file with this:
 
 ```javascript
 import React from 'react';
+import {
+  Svg,
+  Circle,
+  Ellipse,
+  G,
+  LinearGradient,
+  RadialGradient,
+  Line,
+  Path,
+  Polygon,
+  Polyline,
+  Rect,
+  Symbol,
+  Text,
+  Use,
+  Defs,
+  Stop
+} from 'react-native-svg';
 
-export default function NewThing(props) {
+export default function TestSvg(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" style={{height: 512, width: 512}} viewBox="0 0 24 24" width={24} height={24} {...props}>
-  <defs>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="7" result="coloredBlur"></feGaussianBlur>
-      <feMerge>
-        <feMergeNode in="coloredBlur"></feMergeNode>
-        <feMergeNode in="SourceGraphic"></feMergeNode>
-      </feMerge>
-    </filter>
-  </defs>
-  <circle cx="256" cy="256" r="256" fill="#f8e71c" opacity="1" stroke="#fff" strokeWidth="0"></circle>
-  <path fill="#50e3c2" opacity="1" d="M149.25 18.313L168.156 ..." clipPath="false" filter="url(#glow)"></path>
-  <g fontFamily="Arial, Helvetica, sans-serif" fontSize="120" fontStyle="normal" fontWeight="bold" textAnchor="middle" class="" transform="translate(256,300)" style={touchAction: "none"}>
-    <text stroke="#000" strokeWidth="30" opacity="1"></text>
-    <text fill="#fff" opacity="1"></text>
-  </g>
-</svg>
+    <Svg heiGht="512" width="512" viewBox="0 0 512 512">
+      <Defs />
+      <Circle
+        cx="256"
+        cy="256"
+        fill="#f5a623"
+        opacity="1"
+        r="256"
+        stroke="#fff"
+        strokeWidth="0"
+      />
+      <Path
+        ClipPath="false"
+        d="M363.783 ..."
+        fill="#000000"
+        opacity="1"
+        transform="translate(25.6, 25.6) scale(0.9, 0.9) rotate(0, 256, 256)"
+      />
+      <G
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontSize="120"
+        TextAnchor="middle"
+        transform="translate(256,300)"
+      >
+        <Text opacity="1" stroke="#000" strokeWidth="30" />
+        <Text fill="#fff" opacity="1" />
+      </G>
+    </Svg>
+  );
+}
+
 
   );
 }
