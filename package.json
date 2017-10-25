@@ -18,6 +18,9 @@
     "svg",
     "component"
   ],
+  "bin": {
+    "svgtoreactnative": "./index.js"
+  },
   "author": "Chris Bull <chris@siteappy.com> (http://siteappy.com)",
   "license": "MIT",
   "bugs": {
